@@ -25,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path ('', movieViews.home),
     path('about', movieViews.about),
+    path('rate/<int:movie_id>/', movieViews.rate_movie, name='rate_movie'),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

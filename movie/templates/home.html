@@ -27,6 +27,23 @@
                 <div class="card-body">
                     <h5 class="card title fw-bold">{{ movie.title }} </h5>
                     <p class="card-text">{{ movie.description }} </p>
+                    <!-- Rating visual -->
+                   <form method="post" action="{% url 'rate_movie' movie.id %}">
+                        {% csrf_token %}
+                        <div class="d-flex gap-1">
+                            {% for i in range %}
+                                <button name="rating" value="{{ i }}" class="btn btn-link p-0" style="text-decoration: none;">
+                                    {% if i <= movie.rating %}
+                                        <span class="text-warning">&#9733;</span>
+                                    {% else %}
+                                        <span class="text-secondary">&#9734;</span>
+                                    {% endif %}
+                                </button>
+                            {% endfor %}
+                        </div>
+                    </form>
+
+
                     {% if movie.url %}
                     <a href="{{ movie.url }}" class="btn btn-primary">
                         Movie Link
