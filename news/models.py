@@ -1,7 +1,7 @@
 from django.db import models
 
 class News(models.Model):
-    headline = models.ChardField(max_lenght=200)
+    headline = models.CharField(max_length=200)
     body = models.TextField()
     date = models.DateField()
 
